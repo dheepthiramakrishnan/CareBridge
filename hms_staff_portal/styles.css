@@ -1,0 +1,310 @@
+:root {
+  --navy-dark: #0f172a;
+  --navy-header: #1e293b;
+  --cyan-primary: #0284c7;
+  --cyan-light: #e0f2fe;
+  --emerald-success: #10b981;
+  --emerald-light: #d1fae5;
+  --amber-warning: #f59e0b;
+  --amber-light: #fef3c7;
+  --rose-danger: #ef4444;
+  --rose-light: #fee2e2;
+  --purple-accent: #9333ea;
+  --purple-light: #f3e8ff;
+  --bg-color: #f8fafc;
+  --surface: #ffffff;
+  --surface-variant: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --border: #cbd5e1;
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HMS Navbar Header */
+.hms-navbar {
+  background: var(--navy-dark);
+  color: white;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.hms-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hms-logo-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--cyan-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.hms-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.hms-subtitle {
+  font-size: 11px;
+  color: var(--cyan-light);
+  font-weight: 600;
+}
+
+.staff-user-badge {
+  background: rgba(255,255,255,0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Department Navigation Tabs */
+.dept-nav {
+  background: var(--navy-header);
+  padding: 0 24px;
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  overflow-x: auto;
+}
+
+.dept-tab {
+  padding: 14px 20px;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.dept-tab:hover {
+  color: white;
+  background: rgba(255,255,255,0.05);
+}
+
+.dept-tab.active {
+  color: var(--cyan-primary);
+  border-bottom-color: var(--cyan-primary);
+  background: rgba(2, 132, 199, 0.1);
+}
+
+/* Main Container Layout */
+.hms-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 24px auto;
+  padding: 0 24px;
+  flex: 1;
+}
+
+.dept-view {
+  display: none;
+}
+
+.dept-view.active {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Clinical Cards & Tables */
+.card-panel {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--surface-variant);
+}
+
+.panel-title {
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Grid Layouts */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  border-color: var(--cyan-primary);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+textarea.form-control {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Data Tables */
+.hms-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.hms-table th {
+  background: var(--surface-variant);
+  color: var(--text-secondary);
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--border);
+}
+
+.hms-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hms-table tr:hover {
+  background: var(--cyan-light);
+}
+
+/* Status Badges */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.badge-success { background: var(--emerald-light); color: var(--emerald-success); }
+.badge-info { background: var(--cyan-light); color: var(--cyan-primary); }
+.badge-warning { background: var(--amber-light); color: var(--amber-warning); }
+.badge-danger { background: var(--rose-light); color: var(--rose-danger); }
+.badge-neutral { background: var(--surface-variant); color: var(--text-secondary); }
+
+/* Buttons */
+.btn {
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s;
+}
+
+.btn-primary { background: var(--cyan-primary); color: white; }
+.btn-primary:hover { background: #0369a1; }
+.btn-success { background: var(--emerald-success); color: white; }
+.btn-warning { background: var(--amber-warning); color: white; }
+.btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text-primary); }
+.btn-outline:hover { background: var(--surface-variant); }
+
+/* Sync Indicator */
+.sync-banner {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Field validation states (used by validation.js across all HMS forms) */
+.field-error {
+  color: #dc2626;
+  font-size: 11.5px;
+  font-weight: 600;
+  margin-top: 4px;
+  display: none;
+}
+.input-invalid {
+  border-color: #dc2626 !important;
+  background: #fef2f2 !important;
+}
