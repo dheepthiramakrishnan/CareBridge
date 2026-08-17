@@ -1,4 +1,4 @@
-# CareBridge & St. Jude Hospital Management System (HMS) Platform
+# CareBridge & Hospital Management System (HMS) Platform
 
 CareBridge is a dedicated mobile platform built for caregivers and authorized family members to coordinate patient care, track treatment timelines, view diagnostic reports, manage digital prescriptions, complete hospital bill payments, track insurance claims, view medical documents, and receive real-time HMS notifications.
 
